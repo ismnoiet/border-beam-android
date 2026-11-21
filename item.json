@@ -111,5 +111,6 @@
       "Text field"
     ]
   },
-  "fill": true
+  "fill": true,
+  "hidden": true
 }
