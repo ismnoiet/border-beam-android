@@ -1,6 +1,7 @@
 {
   "id": "021",
   "slug": "border-beam-android",
+  "version": "1.0.0",
   "title": "Border Beam",
   "kind": "beam",
   "desc": "Animated border beam for Jetpack Compose, drawn by an AGSL shader.",
