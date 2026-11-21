@@ -2,14 +2,14 @@
 //  BeamShader.kt
 //  BorderBeam
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 13 (API 33) for the shader; see BeamFallback.kt for older versions.
 //
 //  One GPU pass draws the whole beam (crisp edge + soft glow) for a rounded-rect / capsule / circle.
 //  A direct port of the iOS Metal shader, written in AGSL. All lengths are in dp, so the beam looks
 //  the same on every screen density.
 //
-package com.ismnoiet.borderbeam
+package com.repgem.borderbeam
 
 import android.graphics.RuntimeShader
 import androidx.annotation.RequiresApi

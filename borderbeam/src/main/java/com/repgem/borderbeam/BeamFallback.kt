@@ -2,14 +2,14 @@
 //  BeamFallback.kt
 //  BorderBeam
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24)
 //
 //  Canvas version of the beam for devices below Android 13, where AGSL (RuntimeShader) is not
 //  available. It follows the same geometry and palette, but is an approximation: the beam is
 //  drawn as short stroked segments along the border instead of per-pixel glow.
 //
-package com.ismnoiet.borderbeam
+package com.repgem.borderbeam
 
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset

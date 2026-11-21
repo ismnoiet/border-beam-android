@@ -2,10 +2,10 @@
 //  BorderBeam.kt
 //  BorderBeam
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24); AGSL shader on Android 13+ (API 33)
 //
-package com.ismnoiet.borderbeam
+package com.repgem.borderbeam
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

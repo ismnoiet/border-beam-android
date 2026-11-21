@@ -2,14 +2,14 @@
 //  DemoIcons.kt
 //  BorderBeamDemo
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24)
 //
 //  Small stroke icons that mirror the SF Symbols used by the iOS demo (chevron.down, arrow.up, …).
 //  Each one is plain SVG path data on a 24 x 24 grid, drawn with a rounded stroke, so the demo
 //  needs no icon library and the glyphs scale and tint like text.
 //
-package com.ismnoiet.borderbeam.demo
+package com.repgem.borderbeam.demo
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size

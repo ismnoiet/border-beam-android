@@ -2,14 +2,14 @@
 //  ExamplesLight.kt
 //  BorderBeamDemo
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24); AGSL shader on Android 13+ (API 33)
 //
 //  Light-theme demos on real-world UI. Open the project in Android Studio and use the Compose
 //  preview (or call `BorderBeamExamplesLight()` from an activity).
 //  Add demos by appending a `LightSection`.
 //
-package com.ismnoiet.borderbeam.demo
+package com.repgem.borderbeam.demo
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -28,7 +28,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -49,11 +48,11 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ismnoiet.borderbeam.BeamPalette
-import com.ismnoiet.borderbeam.BeamShape
-import com.ismnoiet.borderbeam.BeamStyle
-import com.ismnoiet.borderbeam.BeamTiming
-import com.ismnoiet.borderbeam.BorderBeam
+import com.repgem.borderbeam.BeamPalette
+import com.repgem.borderbeam.BeamShape
+import com.repgem.borderbeam.BeamStyle
+import com.repgem.borderbeam.BeamTiming
+import com.repgem.borderbeam.BorderBeam
 import kotlin.math.abs
 import kotlin.math.sin
 import kotlinx.coroutines.delay
@@ -346,22 +345,20 @@ private fun FocusTimer() {
 }
 
 @Composable
-fun BorderBeamExamplesLight(modifier: Modifier = Modifier) {
-    Column(
-        modifier
-            .fillMaxSize()
-            .background(Paper)
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 20.dp, vertical = 32.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(30.dp),
-    ) {
-        ComposerCard()
-        SuggestionChips()
-        LightSection("Voice recording") { VoiceRecorder() }
-        LightSection("Stories") { StoriesRow() }
-        LightSection("Search") { SearchBar() }
-        LightSection("Focus timer") { FocusTimer() }
+fun BorderBeamExamplesLight(modifier: Modifier = Modifier, onBack: (() -> Unit)? = null) {
+    DemoScreen(title = "Border Beam", background = Paper, titleColor = Ink, modifier = modifier, onBack = onBack) {
+        Column(
+            Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 8.dp, bottom = 32.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(30.dp),
+        ) {
+            ComposerCard()
+            SuggestionChips()
+            LightSection("Voice recording") { VoiceRecorder() }
+            LightSection("Stories") { StoriesRow() }
+            LightSection("Search") { SearchBar() }
+            LightSection("Focus timer") { FocusTimer() }
+        }
     }
 }
 

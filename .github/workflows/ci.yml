@@ -5,7 +5,7 @@ on:
   pull_request:
 
 jobs:
-  build-and-test:
+  test-and-build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -13,9 +13,5 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: Unit tests
-        run: ./gradlew :borderbeam:testDebugUnitTest
-      - name: Build AAR
-        run: ./gradlew :borderbeam:assembleRelease
-      - name: Build demo
-        run: ./gradlew :borderbeam-demo:assembleDebug
+      - name: Test, then build
+        run: ./scripts/check.sh

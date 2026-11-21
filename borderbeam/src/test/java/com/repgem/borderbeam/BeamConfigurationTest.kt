@@ -1,4 +1,4 @@
-package com.ismnoiet.borderbeam
+package com.repgem.borderbeam
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp

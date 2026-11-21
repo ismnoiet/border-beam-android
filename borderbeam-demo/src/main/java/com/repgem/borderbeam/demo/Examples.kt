@@ -2,13 +2,13 @@
 //  Examples.kt
 //  BorderBeamDemo
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24); AGSL shader on Android 13+ (API 33)
 //
 //  Dark-theme demos. Open the project in Android Studio and use the Compose preview
 //  (or call `BorderBeamExamples()` from an activity). Add demos by appending a `DemoSection`.
 //
-package com.ismnoiet.borderbeam.demo
+package com.repgem.borderbeam.demo
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,10 +23,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -40,12 +38,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.ismnoiet.borderbeam.BeamDirection
-import com.ismnoiet.borderbeam.BeamPalette
-import com.ismnoiet.borderbeam.BeamShape
-import com.ismnoiet.borderbeam.BeamStyle
-import com.ismnoiet.borderbeam.BeamTiming
-import com.ismnoiet.borderbeam.BorderBeam
+import com.repgem.borderbeam.BeamDirection
+import com.repgem.borderbeam.BeamPalette
+import com.repgem.borderbeam.BeamShape
+import com.repgem.borderbeam.BeamStyle
+import com.repgem.borderbeam.BeamTiming
+import com.repgem.borderbeam.BorderBeam
 
 private val Background = Color(0.09f, 0.09f, 0.09f)
 private val Soft = Color.White.copy(alpha = 0.6f)
@@ -354,95 +352,93 @@ private fun UpgradeButton(active: Boolean) {
 }
 
 @Composable
-fun BorderBeamExamples(modifier: Modifier = Modifier) {
+fun BorderBeamExamples(modifier: Modifier = Modifier, onBack: (() -> Unit)? = null) {
     var active by remember { mutableStateOf(true) }
     var query by remember { mutableStateOf("") }
 
-    Column(
-        modifier
-            .fillMaxSize()
-            .background(Background)
-            .verticalScroll(rememberScrollState())
-            .padding(vertical = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(20.dp),
-    ) {
-        DemoSection("Large") {
-            PromptBox("Build anything...", Sym.At, BeamPalette.spectrum, active)
-        }
-        DemoSection("Ask Anything (right to left)") { AskAnythingBox(active) }
-        DemoSection("Small") {
-            BorderBeam(style = BeamStyle.small, shape = BeamShape.circle, active = active) {
-                Box(Modifier.size(36.dp).tappable(), contentAlignment = Alignment.Center) {
-                    Box(Modifier.size(9.dp).background(Color.White.copy(alpha = 0.75f), RoundedCornerShape(2.dp)))
+    DemoScreen(title = "Border Beam", background = Background, titleColor = Color.White, modifier = modifier, onBack = onBack) {
+        Column(
+            Modifier.fillMaxWidth().padding(top = 8.dp, bottom = 24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(20.dp),
+        ) {
+            DemoSection("Large") {
+                PromptBox("Build anything...", Sym.At, BeamPalette.spectrum, active)
+            }
+            DemoSection("Ask Anything (right to left)") { AskAnythingBox(active) }
+            DemoSection("Small") {
+                BorderBeam(style = BeamStyle.small, shape = BeamShape.circle, active = active) {
+                    Box(Modifier.size(36.dp).tappable(), contentAlignment = Alignment.Center) {
+                        Box(Modifier.size(9.dp).background(Color.White.copy(alpha = 0.75f), RoundedCornerShape(2.dp)))
+                    }
                 }
             }
-        }
-        DemoSection("Line") {
-            BorderBeam(
-                modifier = Modifier.size(width = 280.dp, height = 42.dp),
-                style = BeamStyle.line,
-                shape = BeamShape.capsule,
-                active = active,
-            ) {
-                Row(
-                    Modifier.fillMaxSize().padding(horizontal = 14.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+            DemoSection("Line") {
+                BorderBeam(
+                    modifier = Modifier.size(width = 280.dp, height = 42.dp),
+                    style = BeamStyle.line,
+                    shape = BeamShape.capsule,
+                    active = active,
                 ) {
-                    Symbol(Sym.MagnifyingGlass, 15f, Faint, 2.2f)
-                    PlainField(query, { query = it }, "Search", 14f, Color.White, Faint, Modifier.fillMaxWidth())
+                    Row(
+                        Modifier.fillMaxSize().padding(horizontal = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    ) {
+                        Symbol(Sym.MagnifyingGlass, 15f, Faint, 2.2f)
+                        PlainField(query, { query = it }, "Search", 14f, Color.White, Faint, Modifier.fillMaxWidth())
+                    }
                 }
             }
-        }
-        DemoSection("Chat composer (neon, right to left)") { NeonComposer(active) }
-        DemoSection("Beam on by default, then while focused") { FocusField() }
-        DemoSection("Pricing card (sunset)") { SunsetCard(active) }
-        DemoSection("Now playing (slow silver)") { NowPlaying(active) }
-        DemoSection("Toast (single color, fast)") { Toast(active) }
-        DemoSection("Avatar + gradient button") {
-            Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
-                AvatarBeam(active)
-                UpgradeButton(active)
+            DemoSection("Chat composer (neon, right to left)") { NeonComposer(active) }
+            DemoSection("Beam on by default, then while focused") { FocusField() }
+            DemoSection("Pricing card (sunset)") { SunsetCard(active) }
+            DemoSection("Now playing (slow silver)") { NowPlaying(active) }
+            DemoSection("Toast (single color, fast)") { Toast(active) }
+            DemoSection("Avatar + gradient button") {
+                Row(horizontalArrangement = Arrangement.spacedBy(24.dp), verticalAlignment = Alignment.CenterVertically) {
+                    AvatarBeam(active)
+                    UpgradeButton(active)
+                }
             }
-        }
-        DemoSection("Search (aurora line)") {
-            BorderBeam(
-                modifier = Modifier.size(width = 300.dp, height = 44.dp),
-                style = BeamStyle.line,
-                shape = BeamShape.capsule,
-                active = active,
-                colors = BeamPalette.aurora,
-                surface = Color(0.08f, 0.08f, 0.08f),
-            ) {
-                Row(
-                    Modifier.fillMaxSize().padding(horizontal = 14.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.spacedBy(10.dp),
+            DemoSection("Search (aurora line)") {
+                BorderBeam(
+                    modifier = Modifier.size(width = 300.dp, height = 44.dp),
+                    style = BeamStyle.line,
+                    shape = BeamShape.capsule,
+                    active = active,
+                    colors = BeamPalette.aurora,
+                    surface = Color(0.08f, 0.08f, 0.08f),
                 ) {
-                    Symbol(Sym.MagnifyingGlass, 15f, Faint, 2.2f)
-                    Txt("Search the docs", 14f, Faint, modifier = Modifier.weight(1f))
-                    Box(
-                        Modifier
-                            .background(Color.White.copy(alpha = 0.1f), RoundedCornerShape(5.dp))
-                            .padding(horizontal = 6.dp, vertical = 3.dp),
-                    ) { Txt("⌘K", 11f, Faint, FontWeight.Medium) }
+                    Row(
+                        Modifier.fillMaxSize().padding(horizontal = 14.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(10.dp),
+                    ) {
+                        Symbol(Sym.MagnifyingGlass, 15f, Faint, 2.2f)
+                        Txt("Search the docs", 14f, Faint, modifier = Modifier.weight(1f))
+                        Box(
+                            Modifier
+                                .background(Color.White.copy(alpha = 0.1f), RoundedCornerShape(5.dp))
+                                .padding(horizontal = 6.dp, vertical = 3.dp),
+                        ) { Txt("⌘K", 11f, Faint, FontWeight.Medium) }
+                    }
                 }
             }
-        }
-        DemoSection("Single color") {
-            Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
-                SwatchCard("Blue", BeamPalette.single(Color.Blue), active)
-                SwatchCard("Green", BeamPalette.single(Color.Green), active)
-                SwatchCard("White", BeamPalette.single(Color.White), active)
+            DemoSection("Single color") {
+                Row(horizontalArrangement = Arrangement.spacedBy(20.dp)) {
+                    SwatchCard("Blue", BeamPalette.single(Color.Blue), active)
+                    SwatchCard("Green", BeamPalette.single(Color.Green), active)
+                    SwatchCard("White", BeamPalette.single(Color.White), active)
+                }
             }
+            Box(
+                Modifier
+                    .background(Color.White.copy(alpha = 0.08f), CircleShape)
+                    .padding(horizontal = 18.dp, vertical = 8.dp)
+                    .tappable { active = !active },
+            ) { Txt(if (active) "Pause" else "Play", 13f, Color.White.copy(alpha = 0.85f), FontWeight.Medium) }
         }
-        Box(
-            Modifier
-                .background(Color.White.copy(alpha = 0.08f), CircleShape)
-                .padding(horizontal = 18.dp, vertical = 8.dp)
-                .tappable { active = !active },
-        ) { Txt(if (active) "Pause" else "Play", 13f, Color.White.copy(alpha = 0.85f), FontWeight.Medium) }
     }
 }
 

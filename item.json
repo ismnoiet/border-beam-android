@@ -1,0 +1,115 @@
+{
+  "id": "021",
+  "slug": "border-beam-android",
+  "title": "Border Beam",
+  "kind": "beam",
+  "desc": "Animated border beam for Jetpack Compose, drawn by an AGSL shader.",
+  "long": "A beautifully animated border beam for Jetpack Compose. One AGSL shader pass draws the beam and its glow, so there are no blur layers. Wrap a text field, button, card or any composable, pick a shape and a palette, and drive the beam from focus or loading state. Android 13 and up use the shader; older versions use a lighter Canvas fallback.",
+  "repo": "https://github.com/ismnoiet/repgem-catalogue/tree/main/packages/android/border-beam-android",
+  "artifact": "borderbeam",
+  "params": [
+    [
+      "style",
+      "BeamStyle.large (comet with a soft glow), small (tight ring) or line (sweeps along the bottom edge). Default large."
+    ],
+    [
+      "shape",
+      "BeamShape.rounded(r) in dp, capsule or circle. Default rounded(26)."
+    ],
+    [
+      "direction",
+      "leftToRight (clockwise) or rightToLeft (counter-clockwise)."
+    ],
+    [
+      "active",
+      "Fades the beam in and out, then stops the frame loop so an idle beam costs nothing. Default true."
+    ],
+    [
+      "colors",
+      "Any List<Color>, up to 8. The first color is the tail and the last is the head. BeamPalette has colorful, gemini, spectrum, neon, sunset, aurora, silver, mono and single(color)."
+    ],
+    [
+      "intensity",
+      "Overall brightness from 0 to 1. Default 1."
+    ],
+    [
+      "timing",
+      "BeamTiming with rotateDuration (2.4 s), lineDuration (2.0 s) and fade (0.6 s). BeamSpeed(x) { } changes the speed of every beam inside."
+    ],
+    [
+      "surface, borderColor",
+      "Container only. Background fill (null for none) and hairline border."
+    ],
+    [
+      "modifier, content",
+      "Container only. Standard Modifier and the composable you wrap. Modifier.borderBeam(...) draws only the beam."
+    ]
+  ],
+  "steps": [
+    [
+      "settings.gradle.kts",
+      "dependencyResolutionManagement { repositories { maven(\"https://jitpack.io\") } }"
+    ],
+    [
+      "app/build.gradle.kts",
+      "dependencies { implementation(\"com.github.ismnoiet.border-beam-android:borderbeam:1.0.0\") }"
+    ]
+  ],
+  "meta": [
+    [
+      "Version",
+      "1.0.0"
+    ],
+    [
+      "Min SDK",
+      "Android 7.0 (API 24)"
+    ],
+    [
+      "Shader",
+      "AGSL on Android 13+, Canvas fallback below"
+    ],
+    [
+      "Compose",
+      "BOM 2024.02.00"
+    ],
+    [
+      "License",
+      "MIT"
+    ]
+  ],
+  "contains": [],
+  "sources": [
+    {
+      "tab": "Quick start",
+      "file": "examples/QuickStart.kt"
+    },
+    {
+      "tab": "Focus state",
+      "file": "examples/FocusField.kt"
+    },
+    {
+      "tab": "Styles",
+      "file": "examples/Styles.kt"
+    },
+    {
+      "tab": "Configuration",
+      "file": "examples/BeamConfiguration.kt"
+    }
+  ],
+  "tags": {
+    "gesture": [],
+    "pattern": [
+      "Ambient",
+      "Input"
+    ],
+    "effect": [
+      "Shader",
+      "Glow"
+    ],
+    "element": [
+      "Border",
+      "Text field"
+    ]
+  },
+  "fill": true
+}

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.ismnoiet.borderbeam.demo"
+    namespace = "com.repgem.borderbeam.demo"
     compileSdk = 34
 
     defaultConfig {

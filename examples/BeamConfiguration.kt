@@ -2,11 +2,11 @@
 //  BeamConfiguration.kt
 //  BorderBeam
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24). The AGSL shader runs on Android 13+ (API 33);
 //  older versions use a lighter Canvas fallback.
 //
-package com.ismnoiet.borderbeam
+package com.repgem.borderbeam
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.colorspace.ColorSpaces

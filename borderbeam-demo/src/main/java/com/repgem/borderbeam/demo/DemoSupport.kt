@@ -2,12 +2,12 @@
 //  DemoSupport.kt
 //  BorderBeamDemo
 //
-//  Author: ismnoiet
+//  Author: Repgem
 //  Minimum supported: Android 7.0 (API 24)
 //
 //  Small helpers shared by the demo screens (plain Compose foundation, no Material needed).
 //
-package com.ismnoiet.borderbeam.demo
+package com.repgem.borderbeam.demo
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
