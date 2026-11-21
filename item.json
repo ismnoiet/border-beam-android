@@ -5,7 +5,7 @@
   "kind": "beam",
   "desc": "Animated border beam for Jetpack Compose, drawn by an AGSL shader.",
   "long": "A beautifully animated border beam for Jetpack Compose. One AGSL shader pass draws the beam and its glow, so there are no blur layers. Wrap a text field, button, card or any composable, pick a shape and a palette, and drive the beam from focus or loading state. Android 13 and up use the shader; older versions use a lighter Canvas fallback.",
-  "repo": "https://github.com/ismnoiet/repgem-catalogue/tree/main/packages/android/border-beam-android",
+  "repo": "https://github.com/ismnoiet/repgem-catalog/tree/main/packages/android/border-beam-android",
   "artifact": "borderbeam",
   "params": [
     [
